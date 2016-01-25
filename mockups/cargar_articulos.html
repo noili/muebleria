@@ -14,8 +14,6 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
 			   integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.1/css/selectize.min.css">
     <!-- Custom styles for this template -->
     <style>
 body {
@@ -67,14 +65,15 @@ body {
 	  <form action="proximos_turnos.html">
 	    <div class="form-group">
 	      <div class="control-group">
-		<select id="selectize" name="state[]" multiple class="demo-default" style="width:50%" placeholder="Buscar Articulos">
-		  <option value="">Select a state...</option>
-		  <option value="5">5:Placard</option>
-		  <option value="6">6:Mesa</option>
-		  <option value="7">7:Cama Chica</option>
-		  <option value="8">8:Biblioteca</option>
-		  <option value="117" selected>117:Cama grande</option>
-		</select>
+                <label for="articulo">Artículo</label>
+                <input type="text" class="form-control" id="articulo" placeholder="Librería">
+	      </div>
+	      <div class="control-group">
+                <label for="tiempo">Tiempo estimado</label>
+                <div class="input-group">
+                  <input type="number" class="form-control" id="tiempo" value="2">
+                  <div class="input-group-addon">horas</div>
+                </div>
 	      </div>
 	    </div>
 	    <button type="Continuar" class="btn btn-default">Submit</button>
@@ -93,12 +92,6 @@ body {
       <!-- Latest compiled and minified JavaScript -->
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
 	      integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.1/js/standalone/selectize.min.js"></script>
-      <script>
-        $('#selectize').selectize({
-          maxItems: 3
-        });
-      </script>
   </body>
 </html>
 
