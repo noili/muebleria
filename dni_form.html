@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Navbar Template for Bootstrap</title>
+    <title>Buscar por DNI</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
@@ -82,7 +82,7 @@ body {
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li class="active"><a href="#">Nuevo ensamble</a></li>
-              <li><a href="#">Ensanble</a></li>
+              <li><a href="#">Ensamble</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="login.html">Cerrar sessión</a></li>
@@ -91,44 +91,13 @@ body {
         </div><!--/.container-fluid -->
       </nav>
       <!-- Main component for a primary marketing message or call to action -->
-      <p><b>DNI</b> 28684242</p>
-      <form action="cargar_articulos.html">
-	<div class="form-group">
-	  <label>Apellido y nombre</label>
-	  <input type="string" class="form-control" id="exampleInputEmail1" placeholder="Apellido y nombre"
-                 value="Oldani Pablo">
-        </div>
-	<div class="form-group">
-	  <label>Direccion</label>
-	  <input type="string" class="form-control" id="exampleInputEmail1" placeholder="Direccion"
-                 value="Derqui 2328, Santa Fe">
-        </div>
-        <div class="form-group">
-          <label>Zona</label>
-          <select class="form-control">
-            <option>Centro</option>
-            <option>Sur</option>
-            <option>Norte</option>
-            <option>Ricón(fuera de zona)</option>
-            <option>Recreo(fuera de zona)</option>
-          </select>
-	</div>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email</label>
-	  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email"
-                 value="oldani.pablo@gmail.com">
-	</div>
-        <div class="form-group">
-          <label>Telefono</label>
-	  <input type="tel" class="form-control" placeholder="Telefono">
-	</div>
-        <div class="form-group">
-          <label>Celular</label>
-	  <input type="tel" class="form-control" placeholder="Celular"
-                 value="+54 (342) 6097578">
-	</div>
-	<button type="Continuar" class="btn btn-default">Submit</button>
-      </form>
+      <div class="jumbotron">
+        <form class="form-signin" action="datos_cliente.html">
+          <h2 class="form-signin-heading">Buscar por DNI</h2>
+          <input type="string" id="inputEmail" class="form-control"
+          placeholder="DNI" required autofocus>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Buscar</button>
+        </form>
       </div>
 
     </div> <!-- /container -->

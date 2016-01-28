@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Navbar Template for Bootstrap</title>
+    <title>Oldani Pablo</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
@@ -25,7 +25,43 @@ body {
 .navbar {
   margin-bottom: 20px;
 }
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
 </style>
+
   </head>
 
   <body>
@@ -46,7 +82,7 @@ body {
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li class="active"><a href="#">Nuevo ensamble</a></li>
-              <li><a href="#">Ensanble</a></li>
+              <li><a href="#">Ensamble</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="login.html">Cerrar sessión</a></li>
@@ -55,40 +91,48 @@ body {
         </div><!--/.container-fluid -->
       </nav>
       <!-- Main component for a primary marketing message or call to action -->
-
-      <div class="list-group">
-        <a href="#" class="list-group-item">
-          <h4 class="list-group-item-heading">Mañana del Lunes 04 de febrero de 2016</h4>
-          <p class="list-group-item-text">
-          <span class="label label-default">3 trabajos</span>
-          <span class="label label-primary">2 horas</span>
-          <span class="label label-success">Martín</span>
-          <span class="label label-warning">zona sur</span>
-          </p>
-        </a>
-        <a href="#" class="list-group-item">
-          <h4 class="list-group-item-heading">Mañana del Lunes 04 de febrero de 2016</h4>
-          <p class="list-group-item-text">
-          <span class="label label-default">3 trabajos</span>
-          <span class="label label-primary">2 horas</span>
-          <span class="label label-success">Jorge</span>
-          <span class="label label-info">zona centro</span>
-          <span class="label label-warning">zona norte</span>
-          </p>
-        </a>
-        <a href="#" class="list-group-item">
-          <h4 class="list-group-item-heading">Tarde del Lunes 04 de febrero de 2016</h4>
-          <p class="list-group-item-text">
-          <span class="label label-default">4 trabajos</span>
-          <span class="label label-primary">5 horas</span>
-          <span class="label label-success">Martín</span>
-          <span class="label label-info">zona centro</span>
-          </p>
-        </a>
+      <p><b>DNI</b> 28684242</p>
+      <form action="cargar_articulos.html">
+	<div class="form-group">
+	  <label>Apellido y nombre</label>
+	  <input type="string" class="form-control" id="exampleInputEmail1" placeholder="Apellido y nombre"
+                 value="Oldani Pablo">
+        </div>
+	<div class="form-group">
+	  <label>Direccion</label>
+	  <input type="string" class="form-control" id="exampleInputEmail1" placeholder="Direccion"
+                 value="Derqui 2328, Santa Fe">
+        </div>
+        <div class="form-group">
+          <label>Zona</label>
+          <select class="form-control">
+            <option>Centro</option>
+            <option>Sur</option>
+            <option>Norte</option>
+            <option>Ricón(fuera de zona)</option>
+            <option>Recreo(fuera de zona)</option>
+          </select>
+	</div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email</label>
+	  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email"
+                 value="oldani.pablo@gmail.com">
+	</div>
+        <div class="form-group">
+          <label>Telefono</label>
+	  <input type="tel" class="form-control" placeholder="Telefono">
+	</div>
+        <div class="form-group">
+          <label>Celular</label>
+	  <input type="tel" class="form-control" placeholder="Celular"
+                 value="+54 (342) 6097578">
+	</div>
+	<button type="Continuar" class="btn btn-default">Submit</button>
+      </form>
       </div>
 
-      <button type="button" class="btn btn-success">Nuevo Turno</button>
     </div> <!-- /container -->
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
