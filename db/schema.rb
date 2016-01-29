@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20160128202224) do
 
   create_table "clients", force: :cascade do |t|
-    t.integer  "dni"
+    t.string   "dni",        null: false
     t.string   "name"
     t.string   "adress"
     t.string   "email"
@@ -23,5 +23,7 @@ ActiveRecord::Schema.define(version: 20160128202224) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "clients", ["dni"], name: "index_clients_on_dni"
 
 end
