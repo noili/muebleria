@@ -10,7 +10,7 @@ class ClientsController < ApplicationController
 
   def update
     client.update client_params
-    redirect_to edit_client_path(client)
+    redirect_to new_client_visit_path(client)
   end
 
   def new

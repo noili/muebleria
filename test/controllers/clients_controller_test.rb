@@ -13,6 +13,12 @@ class ClientsControllerTest < ActionController::TestCase
     end
   end
 
+  test 'redirect to visit new form' do
+    put :update, dni: '28684242', client: {name: 'ceci'}
+
+    assert_redirected_to(new_client_visit_path('28684242'))
+  end
+
   test 'client edit form' do
     get :edit, dni: '33333333'
     assert_response :success
