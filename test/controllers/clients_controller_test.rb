@@ -14,4 +14,10 @@ class ClientsControllerTest < ActionController::TestCase
     assert last_client.name == 'jane'
     assert last_client.dni == '55555555'
   end
+
+  test "should create unexisting client" do
+    assert_difference 'Client.count' do
+      put :update, dni: '35353535', client: {name: 'ceci'}
+    end
+  end
 end
