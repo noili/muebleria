@@ -1,4 +1,10 @@
-muebleria
+[![Build Status](http://img.shields.io/travis/bluelemons/muebleria.svg)](https://travis-ci.org/bluelemons/muebleria)
+[![Code Climate](http://img.shields.io/codeclimate/github/bluelemons/muebleria.svg)](https://codeclimate.com/github/bluelemons/muebleria)
+[![Dependency Status](http://img.shields.io/gemnasium/bluelemons/muebleria.svg)](https://gemnasium.com/bluelemons/muebleria)
+[![Test Coverage](https://codeclimate.com/github/bluelemons/muebleria/badges/coverage.svg)](https://codeclimate.com/github/bluelemons/muebleria)
+[![Inline docs](http://inch-ci.org/github/bluelemons/muebleria.png?branch=master)](http://inch-ci.org/github/bluelemons/muebleria)
+
+Muebleria
 =========
 
 An app to manage assemblage turns for (name).
