@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160130154405) do
+ActiveRecord::Schema.define(version: 20160203205059) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "dni",        null: false
     t.string   "name"
-    t.string   "adress"
+    t.string   "address"
     t.string   "email"
     t.string   "phone"
     t.string   "cellphone"
