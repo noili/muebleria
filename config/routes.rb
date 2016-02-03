@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root to: redirect('/session/sign_in')
+
   resource :session, only: [:new, :create, :destroy],
                      path_names: { new: 'sign_in' }
 
