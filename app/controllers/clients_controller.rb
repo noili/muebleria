@@ -13,6 +13,10 @@ class ClientsController < ApplicationController
     redirect_to edit_client_path(client)
   end
 
+  def new
+    client
+  end
+
   private
 
   def client_params
