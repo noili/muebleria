@@ -11,6 +11,8 @@ class SessionsControllerTest < ActionController::TestCase
     post :create, email: users(:admin).email,
                   password: 'secret'
     assert_equal users(:admin).id, session[:user_id]
+    assert_redirected_to new_client_path
+    assert_equal 'You are now signed in', flash[:notice]
   end
 
   test "should get delete" do
