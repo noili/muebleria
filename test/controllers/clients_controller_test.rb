@@ -17,4 +17,9 @@ class ClientsControllerTest < ActionController::TestCase
     get :edit, dni: '33333333'
     assert_response :success
   end
+
+  test 'client new form' do
+    get :new
+    assert_response :success
+  end
 end
