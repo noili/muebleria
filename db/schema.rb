@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160203205059) do
+ActiveRecord::Schema.define(version: 20160204175945) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "dni",        null: false
@@ -22,9 +22,11 @@ ActiveRecord::Schema.define(version: 20160203205059) do
     t.string   "cellphone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "zone_id"
   end
 
   add_index "clients", ["dni"], name: "index_clients_on_dni"
+  add_index "clients", ["zone_id"], name: "index_clients_on_zone_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false
@@ -44,5 +46,12 @@ ActiveRecord::Schema.define(version: 20160203205059) do
   end
 
   add_index "visits", ["client_id"], name: "index_visits_on_client_id"
+
+  create_table "zones", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "out_of_zone"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
 end
