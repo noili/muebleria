@@ -7,16 +7,16 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to new_client_path, :notice => 'You are now signed in'
+      redirect_to new_client_path, :notice => 'Iniciaste sesion correctamente'
     else
-      flash.now.alert = 'Invalid email or password'
+      flash.now.alert = 'Email o Clave incorrectos'
       render 'new'
     end
   end
 
   def destroy
     session.clear
-    redirect_to new_session_path, notice: 'Signed out!'
+    redirect_to new_session_path, notice: 'Cerraste sesion'
   end
 
 end
