@@ -15,7 +15,7 @@ class AdminFlowTest < ActionDispatch::IntegrationTest
     assert_current_path new_session_path
     fill_in :email, with: users(:admin).email
     fill_in :password, with: 'secret'
-    click_on 'Sign in'
+    click_on 'Iniciar'
     assert_current_path new_client_path
     fill_in 'DNI', with: dni
     click_on 'Search'
