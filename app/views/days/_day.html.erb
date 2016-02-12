@@ -1,4 +1,4 @@
-<li class="date">
+<li class="date<%= ' inactive' if day.expired? %>">
   <h1><%= day.date.strftime('%a') %></h1>
   <h2><%= day.date.strftime('%d') %></h2>
 
@@ -7,8 +7,10 @@
   <span class="label label-info">sur</span>
   <span class="label label-info">centro</span>
   </p>
-  <div class="btn-group btn-group-xs" role="group" aria-label="...">
-    <button type="button" class="btn btn-primary">Elegir</button>
-    <button type="button" class="btn btn-default">Detalles</button>
-  </div>
+  <% unless day.expired? %>
+    <div class="btn-group btn-group-xs" role="group" aria-label="...">
+      <button type="button" class="btn btn-primary">Elegir</button>
+      <button type="button" class="btn btn-default">Detalles</button>
+    </div>
+  <% end %>
 </li>

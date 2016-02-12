@@ -9,6 +9,10 @@ class Day
     @date = date
   end
 
+  def expired?
+    date.past?
+  end
+
   def self.build
     at_beginning_of_week = Time.now.to_date.at_beginning_of_week
     (at_beginning_of_week ... at_beginning_of_week + 7.days).map do |date|
