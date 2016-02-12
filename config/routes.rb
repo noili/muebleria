@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   end
 
   resources :visits, only: :show
+
+  get 'calendar', to: 'days#index'
 end
