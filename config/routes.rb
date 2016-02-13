@@ -6,8 +6,8 @@ Rails.application.routes.draw do
                      path_names: { new: 'sign_in' }
 
   resources :clients, param: :dni, only: [:edit, :create, :update, :new] do
-    resources :visits, only: [:new]
+    resources :visits, only: [:new, :create]
   end
 
-  resources :visits, only: [:create]
+  resources :visits, only: :show
 end

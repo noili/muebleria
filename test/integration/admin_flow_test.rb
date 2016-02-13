@@ -25,6 +25,9 @@ class AdminFlowTest < ActionDispatch::IntegrationTest
     end
     click_on 'Save'
     assert_current_path new_client_visit_path(dni)
+    fill_in :visit_description, with: 'una cama'
+    fill_in :visit_duration, with: '2'
+    click_on 'Guardar'
+    assert_current_path visit_path(Visit.last)
   end
-
 end

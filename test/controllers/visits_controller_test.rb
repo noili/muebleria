@@ -26,7 +26,7 @@ class VisitsControllerTest < ActionController::TestCase
     assert_difference('Visit.count') do
       post :create, visit: valid_visit_data, client_dni: client.dni
 
-      assert_redirected_to visits_path
+      assert_redirected_to visit_path(Visit.last)
     end
   end
 end
