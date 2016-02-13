@@ -13,6 +13,10 @@ class Day
     date.past?
   end
 
+  def turns
+    Turn.where(at: date)
+  end
+
   def self.build
     at_beginning_of_week = Time.now.to_date.at_beginning_of_week
     (at_beginning_of_week ... at_beginning_of_week + 7.days).map do |date|
