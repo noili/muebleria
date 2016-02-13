@@ -1,45 +1,52 @@
-<%= form_for @client, html: {class: 'form-signin'} do |f| %>
-  <h2 class="form-signin-heading">Editar cliente.</h2>
+<%= form_for @client do |f| %>
+  <h2 class="form-signin-heading">Editar cliente</h2>
 
-  <h4 class="form-signin-heading">DNI</h4>
-  <%= f.text_field :dni,
-                   placeholder: '33123456',
-                   readonly: true,
-                   required: true,
-                   autofocus: true,
-                   class: 'form-control'%>
+  <div class="form-group">
+    <label>DNI</label>
+    <%= f.text_field :dni,
+      placeholder: '33123456',
+      readonly: true,
+      required: true,
+      class: 'form-control'%>
+  </div>
+  <div class="form-group">
+    <label>Nombre</label>
+    <%= f.text_field :name,
+      placeholder: 'Juan',
+      required: true,
+      autofocus: true,
+      class: 'form-control'%>
+  </div>
 
-  <h4 class="form-signin-heading">Nombre</h4>
-  <%= f.text_field :name,
-                   placeholder: 'Juan',
-                   required: true,
-                   autofocus: true,
-                   class: 'form-control'%>
+  <div class="form-group">
+    <label>Dirección</label>
+    <%= f.text_field :address,
+      placeholder: 'Derqui 2328',
+      required: true,
+      class: 'form-control'%>
+  </div>
 
-  <h4 class="form-signin-heading">Direccion</h4>
-  <%= f.text_field :address,
-                   placeholder: 'Derqui 2328',
-                   required: true,
-                   autofocus: true,
-                   class: 'form-control'%>
+  <div class="form-group">
+    <label>Email</label>
+    <%= f.email_field :email,
+      placeholder: 'juan@something.com',
+      class: 'form-control'%>
+  </div>
 
-  <h4 class="form-signin-heading">Email</h4>
-  <%= f.email_field :email,
-                   placeholder: 'juan@something.com',
-                   autofocus: true,
-                   class: 'form-control'%>
+  <div class="form-group">
+    <label>Telefono</label>
+    <%= f.text_field :phone,
+      placeholder: '342 455 5555',
+      class: 'form-control'%>
+  </div>
 
-  <h4 class="form-signin-heading">Telefono</h4>
-  <%= f.text_field :phone,
-                   placeholder: '4555555',
-                   autofocus: true,
-                   class: 'form-control'%>
+  <div class="form-group">
+    <label>Celular</label>
+    <%= f.text_field :cellphone,
+      placeholder: '54 342 655 5555',
+      autofocus: true,
+      class: 'form-control'%>
+  </div>
 
-  <h4 class="form-signin-heading">Celular</h4>
-  <%= f.text_field :cellphone,
-                   placeholder: '155555555',
-                   autofocus: true,
-                   class: 'form-control'%>
-
-  <%= f.submit 'save', class: 'btn btn-lg btn-primary btn-block' %>
+  <%= f.submit 'Guardar', class: 'btn btn-lg btn-primary btn-block' %>
 <% end %>

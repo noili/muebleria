@@ -3,9 +3,9 @@ require 'test_helper'
 class AdminFlowTest < ActionDispatch::IntegrationTest
 
   SAMPLE_CLIENT = {
-    name: 'John Doe',
-    address: '25 de Mayo 2445 piso 2 dpto 3',
-    cellphone: '155-325565'
+    client_name: 'John Doe',
+    client_address: '25 de Mayo 2445 piso 2 dpto 3',
+    client_cellphone: '155-325565'
   }
 
   test 'adding a new visit for a new client' do
@@ -17,13 +17,13 @@ class AdminFlowTest < ActionDispatch::IntegrationTest
     fill_in :password, with: 'secret'
     click_on 'Iniciar'
     assert_current_path new_client_path
-    fill_in 'DNI', with: dni
+    fill_in 'client_dni', with: dni
     click_on 'Search'
     assert_current_path edit_client_path(dni)
     SAMPLE_CLIENT.each do |attr, value|
-      fill_in attr.to_s.capitalize, with: value
+      fill_in attr, with: value
     end
-    click_on 'Save'
+    click_on 'Guardar'
     assert_current_path new_client_visit_path(dni)
     fill_in :visit_description, with: 'una cama'
     fill_in :visit_duration, with: '2'
