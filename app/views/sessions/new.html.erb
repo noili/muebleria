@@ -1,20 +1,20 @@
-<%= form_tag session_path do |f| %>
-  <h2>Inicio de session</h2>
+<%= form_tag session_path, class: 'form-signin' do |f| %>
+  <h2 class="form-signin-heading">Inicio de session</h2>
 
   <% if flash[:alert] %>
-    <div class="alert"><%= flash[:alert] %></div>
+    <div class="alert alert-danger" role="alert"><%= flash[:alert] %></div>
   <% end %>
 
-  <%= label_tag :email %>
   <%= email_field_tag :email, nil,
                       placeholder: 'juan@hotmail.com',
                       required: true,
-                      autofocus: true %>
+                      autofocus: true,
+                      class: 'form-control' %>
 
-  <%= label_tag :password %>
   <%= password_field_tag :password, nil,
                          placeholder: 'secreto tomate pasta',
-                         required: true %>
+                         required: true,
+                         class: 'form-control' %>
 
-  <%= submit_tag 'Sign in' %>
+  <%= submit_tag 'Iniciar', class: 'btn btn-lg btn-primary btn-block' %>
 <% end %>
