@@ -2,15 +2,22 @@
   <h1><%= day.date.strftime('%a') %></h1>
   <h2><%= day.date.strftime('%d') %></h2>
 
-  <p>Roberto, 3 tareas</p>
-  <p>
-  <span class="label label-info">sur</span>
-  <span class="label label-info">centro</span>
-  </p>
+  <% day.turns.each do |turn|%>
+    <p><%= turn.employee %>, <%= turn.visits.count %> tareas</p>
+    <p>
+    <% turn.zones.each do |zone| %>
+      <span class="label label-info"><%= zone %></span>
+    <% end %>
+    </p>
+  <% end %>
   <% unless day.expired? %>
-    <div class="btn-group btn-group-xs" role="group" aria-label="...">
-      <button type="button" class="btn btn-primary">Elegir</button>
-      <button type="button" class="btn btn-default">Detalles</button>
-    </div>
+    <% if day.turns.empty? %>
+      <%= render partial: 'turns/form', locals: { turn: day.turns.new }%>
+    <% else %>
+      <div class="btn-group btn-group-xs" role="group" aria-label="...">
+        <button type="button" class="btn btn-primary">Elegir</button>
+        <button type="button" class="btn btn-default">Detalles</button>
+      </div>
+    <% end %>
   <% end %>
 </li>
