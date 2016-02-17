@@ -9,15 +9,17 @@
       <span class="label label-info"><%= zone %></span>
     <% end %>
     </p>
+    <div class="radio">
+      <label>
+        <input type="radio" name="visit[turn_id]" id="visit[turn_id]"
+          value=<%= turn.id %>>
+      </label>
+    </div>
   <% end %>
   <% unless day.expired? %>
     <% if day.turns.empty? %>
-      <%= render partial: 'turns/form', locals: { turn: day.turns.new }%>
+      <%# <%= render partial: 'turns/form', locals: { turn: day.turns.new }%>
     <% else %>
-      <div class="btn-group btn-group-xs" role="group" aria-label="...">
-        <button type="button" class="btn btn-primary">Elegir</button>
-        <button type="button" class="btn btn-default">Detalles</button>
-      </div>
     <% end %>
   <% end %>
 </li>

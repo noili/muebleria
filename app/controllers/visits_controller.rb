@@ -4,6 +4,7 @@ class VisitsController < ApplicationController
 
   def new
     @visit = client.visits.new
+    @calendar = Day.build
   end
 
   def create
@@ -14,7 +15,7 @@ class VisitsController < ApplicationController
   private
 
   def visit_params
-    params.require(:visit).permit(:description, :duration, :client)
+    params.require(:visit).permit(:description, :duration, :client, :turn_id)
   end
 
   def client

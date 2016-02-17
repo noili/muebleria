@@ -13,6 +13,8 @@
       placeholder: 'Cuantas horas puede demorar?',
       class: 'form-control'%>
   </div>
-
+  <ul class="calendar">
+    <%= render @calendar, locals: { f: f } %>
+  </ul>
   <%= f.submit 'Guardar', class: 'btn btn-lg btn-primary btn-block' %>
 <% end %>
