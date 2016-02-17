@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+pablo:
+  name: 'Pablo'
+  lock: true
+
+eloy:
+  name: 'Eloy'
+  lock: true
+
+fede:
+  name: 'Federico'
+  lock: true
+
+jose:
+  name: 'Jose'
+  lock: false
