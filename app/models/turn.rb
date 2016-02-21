@@ -12,7 +12,14 @@ class Turn < ActiveRecord::Base
 
   validates :at, presence: true, future: { on: :create }
 
+  scope :available, -> { where('at >= ?', Date.today) }
+
   def zones
     ['sur', 'norte']
+  end
+
+  def to_s
+    date = I18n.localize at, format: :short
+    "#{ date } (#{ employee })"
   end
 end
