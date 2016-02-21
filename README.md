@@ -1,4 +1,4 @@
-[![Build Status](http://img.shields.io/travis/bluelemons/muebleria.svg)](https://travis-ci.org/bluelemons/muebleria)
+[![Build Status](https://img.shields.io/codeship/7c7644e0-bb13-0133-1f3d-4635c7e75c57.svg)](https://codeship.com/projects/135777)
 [![Code Climate](http://img.shields.io/codeclimate/github/bluelemons/muebleria.svg)](https://codeclimate.com/github/bluelemons/muebleria)
 [![Dependency Status](http://img.shields.io/gemnasium/bluelemons/muebleria.svg)](https://gemnasium.com/bluelemons/muebleria)
 [![Test Coverage](https://codeclimate.com/github/bluelemons/muebleria/badges/coverage.svg)](https://codeclimate.com/github/bluelemons/muebleria)
