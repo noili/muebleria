@@ -8,7 +8,7 @@ class VisitsController < ApplicationController
   end
 
   def create
-    visit = client.visits.create(visit_params)
+    visit = client.visits.create!(visit_params)
     redirect_to visit_path(visit)
   end
 

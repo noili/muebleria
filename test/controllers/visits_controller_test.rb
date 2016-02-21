@@ -6,7 +6,9 @@ class VisitsControllerTest < ActionController::TestCase
   end
 
   def valid_visit_data
-    { visit: { description: '2 camas', duration: '2', client: client } }
+    { description: '2 camas',
+      duration: '2',
+      turn_id: turns(:jueves) }
   end
 
   test 'the visit new form' do

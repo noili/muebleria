@@ -13,13 +13,29 @@
       placeholder: 'Cuantas horas puede demorar?',
       class: 'form-control'%>
   </div>
-  <div class="form-group">
-    <%= f.label :turn_id, 'Salida' %>
-    <%= f.select :turn_id, Turn.available.map { |t| [t.to_s, t.id] },
-      {}, class: 'form-control' %>
-  </div>
-  <ul class="calendar">
-    <%= render @calendar %>
-  </ul>
+  <fieldset>
+    <legend>Agendar</legend>
+    <ul class="calendar">
+      <%= render @calendar %>
+    </ul>
+    <div class="form-group">
+      <%= f.label :turn_id, 'Turno existente' %>
+      <%= f.select :turn_id, Turn.available.map { |t| [t.to_s, t.id] },
+        { prompt: 'Seleccione un turno' },
+        class: 'form-control' %>
+    </div>
+    <legend>Nuevo turno</legend>
+    <%= fields_for :turn do |tf| %>
+      <div class="form-group">
+        <%= tf.label :at, 'Fecha' %>
+        <%= tf.text_field :at, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= tf.label :employee %>
+        <%= tf.select :employee, Employee.all.map { |t| [t, t.id] },
+          { prompt: 'Seleccione armador' }, class: 'form-control' %>
+      </div>
+    <% end %>
+  </fieldset>
   <%= f.submit 'Guardar', class: 'btn btn-lg btn-primary btn-block' %>
 <% end %>
