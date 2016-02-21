@@ -4,7 +4,7 @@ class VisitsController < ApplicationController
 
   def new
     @visit = client.visits.new
-    @calendar = Day.build
+    @calendar = Day.build 2
   end
 
   def create
