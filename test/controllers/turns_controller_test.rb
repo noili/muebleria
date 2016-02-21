@@ -2,12 +2,12 @@ require 'test_helper'
 
 class TurnsControllerTest < ActionController::TestCase
   setup do
-    @turn = turns(:one)
+    @turn = turns(:jueves)
   end
 
   test "should create turn" do
     assert_difference('Turn.count') do
-      post :create, turn: { at: @turn.at }
+      post :create, turn: { at: Date.tomorrow, employee_id: employees(:pablo) }
     end
 
     assert_redirected_to turn_path(assigns(:turn))
