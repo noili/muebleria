@@ -3,7 +3,7 @@
   <h2><%= day.date.strftime('%d') %></h2>
 
   <% day.turns.each do |turn|%>
-    <button class="btn btn-default btn-block" type="button" id="turn-#{ turn.id }">
+    <button class="btn btn-default btn-block" type="button" data-turn-id="<%= turn.id %>">
       <p><%= turn.employee %>, <%= turn.visits.count %> tareas</p>
       <p>
       <% turn.zones.each do |zone| %>
@@ -13,9 +13,9 @@
     </button>
   <% end %>
   <% unless day.expired? %>
-    <% if day.turns.empty? %>
-      <%# <%= render partial: 'turns/form', locals: { turn: day.turns.new }%>
-    <% else %>
-    <% end %>
+    <button type="button" class="btn btn-primary btn-block new-turn"
+            data-at="<%= day.date %>">
+      Nuevo turno
+    </button>
   <% end %>
 </li>

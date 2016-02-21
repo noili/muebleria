@@ -5,29 +5,30 @@ class VisitsControllerTest < ActionController::TestCase
     clients(:john)
   end
 
-  def valid_visit_data
-    { description: '2 camas',
-      duration: '2',
-      turn_id: turns(:jueves) }
-  end
-
   test 'the visit new form' do
     get :new, client_dni: client.dni
     assert_not_nil assigns(:visit)
     assert_response :success
   end
 
-  test '#new show form for new visit' do
-    get :new, client_dni: client.dni
-    assert_select 'textarea#visit_description'
-    assert_select 'input#visit_duration'
-    assert_select 'input[type=submit]'
+  test 'should create visit selecting an existing turn' do
+    assert_difference('Visit.count') do
+      post :create, client_dni: client.dni,
+                    visit: { description: '2 camas',
+                             duration: '2',
+                             turn_id: turns(:jueves) }
+      assert_redirected_to visit_path(Visit.last)
+    end
   end
 
-  test 'should create visit' do
-    assert_difference('Visit.count') do
-      post :create, visit: valid_visit_data, client_dni: client.dni
-
+  test 'should create visit with a new turn' do
+    assert_difference(['Visit.count', 'Turn.count']) do
+      post :create, client_dni: client.dni,
+        visit: { description: '2 camas',
+                 duration: '2',
+                 turn_id: '' },
+        turn: { at: Date.tomorrow,
+                employee_id: employees(:pablo) }
       assert_redirected_to visit_path(Visit.last)
     end
   end
