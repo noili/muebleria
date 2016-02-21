@@ -1,0 +1,26 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="#">Cronograma</a></li>
+        <li><a href="/clients/new">Nuevo llamado</a></li>
+        <li><a href="/employees">Armadores</a></li>
+      </ul>
+      <%= form_for @client_search, html: {class: 'navbar-form navbar-left'} do |f| %>
+        <%= f.text_field :dni,
+          placeholder: 'Ingrese DNI',
+          required: true,
+          class: 'form-control'%>
+
+        <%= f.submit 'Buscar', class: 'btn btn-default' %>
+
+      <% end %>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="/">Cerrar Session</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

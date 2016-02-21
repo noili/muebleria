@@ -17,7 +17,7 @@ class AdminFlowTest < ActionDispatch::IntegrationTest
     fill_in :password, with: 'secret'
     click_on 'Iniciar'
     assert_current_path new_client_path
-    fill_in 'client_dni', with: dni
+    fill_in 'Buscar DNI', with: dni
     click_on 'Search'
     assert_current_path edit_client_path(dni)
     SAMPLE_CLIENT.each do |attr, value|
