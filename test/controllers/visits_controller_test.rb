@@ -26,9 +26,9 @@ class VisitsControllerTest < ActionController::TestCase
       post :create, client_dni: client.dni,
         visit: { description: '2 camas',
                  duration: '2',
-                 turn_id: '' },
-        turn: { at: Date.tomorrow,
-                employee_id: employees(:pablo) }
+                 turn_attributes: {
+                   at: Date.tomorrow,
+                   employee_id: employees(:pablo) } }
       assert_redirected_to visit_path(Visit.last)
     end
   end

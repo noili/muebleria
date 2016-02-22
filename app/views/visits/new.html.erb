@@ -1,4 +1,15 @@
 <%= form_for [:client, @visit] do |f| %>
+  <% if @visit.errors.any? %>
+    <div id="error_explanation">
+      <h2>Verifique los datos ingresados:</h2>
+
+      <ul>
+        <% @visit.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <div class="form-group">
     <label>Descripción</label>
     <%= f.text_area :description,
@@ -27,7 +38,7 @@
   </fieldset>
   <fieldset id="new-turn">
     <legend>Nuevo turno</legend>
-    <%= fields_for :turn do |tf| %>
+    <%= f.fields_for :turn do |tf| %>
       <div class="form-group">
         <%= tf.label :at, 'Fecha' %>
         <%= tf.text_field :at, class: 'form-control' %>

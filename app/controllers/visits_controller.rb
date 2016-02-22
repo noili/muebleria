@@ -9,14 +9,15 @@ class VisitsController < ApplicationController
     @calendar = Day.build 2
   end
 
-  # Create a new visit and create a new turn for it when details are given
   def create
     @visit = client.visits.new(visit_params)
-    Visit.transaction do
-      @visit.turn = Turn.create! turn_params if visit_params['turn_id'].empty?
-      @visit.save!
+    if @visit.save
+      redirect_to visit_path(@visit),
+        notice: 'Visita creada'
+    else
+      @calendar = Day.build 2
+      render :new
     end
-    redirect_to visit_path(@visit)
   end
 
   private
@@ -26,11 +27,16 @@ class VisitsController < ApplicationController
   end
 
   def visit_params
-    params.require(:visit).permit(:description, :duration, :client, :turn_id)
+    params.require(:visit).permit(:description, :duration, :client,
+                                  turn_attributes)
   end
 
-  def turn_params
-    params.require(:turn).permit(:at, :employee_id)
+  def turn_attributes
+    if params['visit']['turn_id']
+      :turn_id
+    else
+      { turn_attributes: [:at, :employee_id] }
+    end
   end
 
   def client
