@@ -1,0 +1,8 @@
+norte:
+  name: 'norte'
+
+sur:
+  name: 'sur'
+
+centro:
+  name: 'centro'

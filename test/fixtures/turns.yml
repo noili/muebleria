@@ -2,3 +2,6 @@
 jueves:
   at: <%= Date.parse 'thusday' %>
   employee: pablo
+
+tomorrow:
+  at: <%= Time.now + 86400 %>

@@ -1,0 +1,17 @@
+visit_john:
+  client_id: <%= ActiveRecord::FixtureSet.identify(:john)%>
+  turn_id: <%= ActiveRecord::FixtureSet.identify(:tomorrow)%>
+  description: 'escritorio'
+  duration: '2'
+
+visit_jane:
+  client_id: <%= ActiveRecord::FixtureSet.identify(:jane)%>
+  turn_id: <%= ActiveRecord::FixtureSet.identify(:tomorrow)%>
+  description: 'ropero'
+  duration: '2'
+
+visit_pablo:
+  client_id: <%= ActiveRecord::FixtureSet.identify(:pablo)%>
+  turn_id: <%= ActiveRecord::FixtureSet.identify(:tomorrow)%>
+  description: 'mesa'
+  duration: '2'

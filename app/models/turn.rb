@@ -15,7 +15,7 @@ class Turn < ActiveRecord::Base
   scope :available, -> { where('at >= ?', Date.today) }
 
   def zones
-    ['sur', 'norte']
+    visits.map(&:zone_name).uniq
   end
 
   def to_s
