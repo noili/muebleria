@@ -1,0 +1,6 @@
+es:
+  activerecord:
+    models:
+      turn:
+        one: Turno
+        other: Turnos

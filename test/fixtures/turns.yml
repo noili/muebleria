@@ -1,2 +1,4 @@
-one:
-  at: '2016-01-01'
+# hay un turno el siguiente jueves
+jueves:
+  at: <%= Date.parse 'thusday' %>
+  employee: pablo

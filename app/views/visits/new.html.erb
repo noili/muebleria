@@ -1,4 +1,15 @@
 <%= form_for [:client, @visit] do |f| %>
+  <% if @visit.errors.any? %>
+    <div id="error_explanation">
+      <h2>Verifique los datos ingresados:</h2>
+
+      <ul>
+        <% @visit.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <div class="form-group">
     <label>Descripción</label>
     <%= f.text_area :description,
@@ -13,8 +24,31 @@
       placeholder: 'Cuantas horas puede demorar?',
       class: 'form-control'%>
   </div>
-  <ul class="calendar">
-    <%= render @calendar, locals: { f: f } %>
-  </ul>
+  <legend>Agendar</legend>
+    <ul class="calendar clearfix">
+      <%= render @calendar %>
+    </ul>
+  <fieldset id="add-to-turn">
+    <div class="form-group">
+      <%= f.label :turn_id, 'Turno' %>
+      <%= f.select :turn_id, Turn.available.map { |t| [t.to_s, t.id] },
+        { prompt: 'Seleccione un turno' },
+        class: 'form-control' %>
+    </div>
+  </fieldset>
+  <fieldset id="new-turn">
+    <legend>Nuevo turno</legend>
+    <%= f.fields_for :turn do |tf| %>
+      <div class="form-group">
+        <%= tf.label :at, 'Fecha' %>
+        <%= tf.text_field :at, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= tf.label :employee_id %>
+        <%= tf.select :employee_id, Employee.all.map { |t| [t, t.id] },
+          { prompt: 'Seleccione armador' }, class: 'form-control' %>
+      </div>
+    <% end %>
+  </fieldset>
   <%= f.submit 'Guardar', class: 'btn btn-lg btn-primary btn-block' %>
 <% end %>

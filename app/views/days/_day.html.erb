@@ -3,23 +3,19 @@
   <h2><%= day.date.strftime('%d') %></h2>
 
   <% day.turns.each do |turn|%>
-    <p><%= turn.employee %>, <%= turn.visits.count %> tareas</p>
-    <p>
-    <% turn.zones.each do |zone| %>
-      <span class="label label-info"><%= zone %></span>
-    <% end %>
-    </p>
-    <div class="radio">
-      <label>
-        <input type="radio" name="visit[turn_id]" id="visit[turn_id]"
-          value=<%= turn.id %>>
-      </label>
-    </div>
+    <button class="btn btn-default btn-block" type="button" data-turn-id="<%= turn.id %>">
+      <p><%= turn.employee %>, <%= turn.visits.count %> tareas</p>
+      <p>
+      <% turn.zones.each do |zone| %>
+        <span class="label label-info"><%= zone %></span>
+      <% end %>
+      </p>
+    </button>
   <% end %>
   <% unless day.expired? %>
-    <% if day.turns.empty? %>
-      <%# <%= render partial: 'turns/form', locals: { turn: day.turns.new }%>
-    <% else %>
-    <% end %>
+    <button type="button" class="btn btn-primary btn-block new-turn"
+            data-at="<%= day.date %>">
+      Nuevo turno
+    </button>
   <% end %>
 </li>
