@@ -1,9 +1,6 @@
 class VisitsController < ApplicationController
   before_action :set_visit, only: [:show]
 
-  def index
-  end
-
   def new
     @visit = client.visits.new
     @calendar = Day.build 2
@@ -41,5 +38,9 @@ class VisitsController < ApplicationController
 
   def client
     @client ||= Client.find_by! dni: params[:client_dni]
+  end
+
+  def set_visit
+    @visit ||= Visit.find(params[:id])
   end
 end

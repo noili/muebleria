@@ -1,1 +1,24 @@
-<%= @visit.inspect %>
+<div class="panel panel-primary">
+  <div class="panel-heading"><%= @visit.turn.at %></div>
+  <div class="panel-body">
+    <p><%= @visit.description %></p>
+    <b>Duración estimada:</b> <%= @visit.duration %>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading"><%= @visit.client.name %></div>
+  <div class="panel-body">
+    <b>Direccion:</b>
+    <p><%= @visit.client.address %></p>
+
+    <b>Telefono:</b>
+    <p><%= @visit.client.phone %></p>
+
+    <b>Celular:</b>
+    <p><%= @visit.client.cellphone %></p>
+
+    <b>Email:</b>
+    <p><%= @visit.client.email %></p>
+  </div>
+</div>
