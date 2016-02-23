@@ -6,16 +6,9 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body class="<%= controller_name %>">
+<body class="sessions">
 
   <div class="container">
-    <%= render partial: 'navbar'%>
-    <% flash.each do |type, message| %>
-      <div class="alert <%= alert_class type %> fade in">
-        <%= close_button %>
-        <%= message %>
-      </div>
-    <% end %>
     <%= yield %>
   </div>
 
