@@ -41,6 +41,7 @@ end
 
 group :test do
   gem 'capybara', '~> 2.6'
+  gem 'codeclimate-test-reporter', require: false
 end
 
 group :development do
