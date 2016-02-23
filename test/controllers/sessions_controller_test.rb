@@ -12,7 +12,7 @@ class SessionsControllerTest < ActionController::TestCase
                   password: 'secret'
     assert_equal users(:admin).id, session[:user_id]
     assert_redirected_to new_client_path
-    assert_equal 'Iniciaste sesion correctamente', flash[:notice]
+    assert_equal 'Iniciaste sesion correctamente', flash[:success]
   end
 
   test "should get delete" do

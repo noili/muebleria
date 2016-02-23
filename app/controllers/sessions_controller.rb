@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to new_client_path, :notice => 'Iniciaste sesion correctamente'
+      redirect_to new_client_path, success: 'Iniciaste sesion correctamente'
     else
       flash.now.alert = 'Email o Clave incorrectos'
       render 'new'
