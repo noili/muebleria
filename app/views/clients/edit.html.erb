@@ -28,7 +28,7 @@
 
   <div class="form-group">
     <label>Zona</label>
-    <%= f.select(:zone_id, Zone.all.map { |zone| [zone.name, zone.id] }, {}, {class: "form-control"}) %>
+    <%= f.select(:zone_id, Zone.all.map { |zone| [zone.name, zone.id] }, { prompt: 'Seleccione una zona' }, { class: 'form-control' }) %>
   </div>
 
   <div class="form-group">
