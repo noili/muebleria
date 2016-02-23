@@ -12,7 +12,7 @@
     <%= render partial: 'navbar'%>
     <% flash.each do |type, message| %>
       <div class="alert <%= bootstrap_class_for(type) %> fade in">
-        <%= content_tag(:button, 'x', class: "close", data: { dismiss: 'alert'  }) %>
+        <%= close_button %>
         <%= message %>
       </div>
     <% end %>
