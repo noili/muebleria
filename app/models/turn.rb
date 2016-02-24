@@ -16,10 +16,6 @@ class Turn < ActiveRecord::Base
 
   scope :available, -> { where('at >= ?', Date.today) }
 
-  def zones
-    visits.map(&:zone_name).uniq
-  end
-
   def to_s
     date = I18n.localize at, format: :short
     "#{ date } (#{ employee })"
