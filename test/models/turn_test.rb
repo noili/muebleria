@@ -18,8 +18,8 @@ class TurnTest < ActiveSupport::TestCase
 
   test 'zone names returns array with zones from visits' do
     turn = turns :tomorrow
-    assert turn.zones.include? 'norte'
-    assert turn.zones.include? 'sur'
-    assert_equal turn.zones.size, 2
+    assert turn.zones.include? zones(:norte)
+    assert turn.zones.include? zones(:sur)
+    assert_equal 2, turn.zones.size
   end
 end

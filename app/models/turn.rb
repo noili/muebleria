@@ -9,6 +9,8 @@ class Turn < ActiveRecord::Base
 
   belongs_to :employee, required: true
   has_many :visits
+  has_many :clients, through: :visits
+  has_many :zones, -> { distinct }, through: :clients
 
   validates :at, presence: true, future: { on: :create }
 
