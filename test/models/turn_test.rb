@@ -16,11 +16,10 @@ class TurnTest < ActiveSupport::TestCase
     assert_match /#{date.day}/, turn.to_s, 'display date'
   end
 
-  test 'zone_names_returns_array_with_zones_from_visits' do
+  test 'zone names returns array with zones from visits' do
     turn = turns :tomorrow
-    assert turn.zones.class == Array
     assert turn.zones.include? 'norte'
     assert turn.zones.include? 'sur'
-    assert turn.zones.size == 2
+    assert_equal turn.zones.size, 2
   end
 end
