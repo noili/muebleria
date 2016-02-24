@@ -1,4 +1,8 @@
 # hay un turno el siguiente jueves
 jueves:
-  at: <%= Date.parse 'thusday' %>
+  at: <%= Date.parse 'thursday' %>
   employee: pablo
+
+tomorrow:
+  at: <%= Time.now + 86400 %>
+  employee: fede

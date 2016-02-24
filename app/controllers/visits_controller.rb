@@ -32,7 +32,7 @@ class VisitsController < ApplicationController
   end
 
   def turn_attributes
-    if params['visit']['turn_id']
+    if params['visit']['turn_id'].present?
       :turn_id
     else
       { turn_attributes: [:at, :employee_id] }

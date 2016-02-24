@@ -1,0 +1,17 @@
+visit_john:
+  client: john
+  turn: tomorrow
+  description: 'escritorio'
+  duration: '2'
+
+visit_jane:
+  client: jane
+  turn: tomorrow
+  description: 'ropero'
+  duration: '2'
+
+visit_pablo:
+  client: pablo
+  turn: tomorrow
+  description: 'mesa'
+  duration: '2'

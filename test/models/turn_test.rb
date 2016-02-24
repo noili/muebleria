@@ -15,4 +15,11 @@ class TurnTest < ActiveSupport::TestCase
     assert_match /\(Pablo\)/, turn.to_s, 'display employee'
     assert_match /#{date.day}/, turn.to_s, 'display date'
   end
+
+  test 'zone names returns array with zones from visits' do
+    turn = turns :tomorrow
+    assert turn.zones.include? zones(:norte)
+    assert turn.zones.include? zones(:sur)
+    assert_equal 2, turn.zones.size
+  end
 end

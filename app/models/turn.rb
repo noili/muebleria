@@ -9,14 +9,12 @@ class Turn < ActiveRecord::Base
 
   belongs_to :employee, required: true
   has_many :visits
+  has_many :clients, through: :visits
+  has_many :zones, -> { distinct }, through: :clients
 
   validates :at, presence: true, future: { on: :create }
 
   scope :available, -> { where('at >= ?', Date.today) }
-
-  def zones
-    ['sur', 'norte']
-  end
 
   def to_s
     date = I18n.localize at, format: :short
