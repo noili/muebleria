@@ -2,7 +2,7 @@ john:
   dni: '33333333'
   name: 'john'
   address: 'street 123'
-  zone_id: <%= ActiveRecord::Fixtures.identify(:norte)%>
+  zone: 'norte'
   email: 'john@asd.com'
   phone: '4333'
   cellphone: '1554333'
@@ -11,7 +11,7 @@ jane:
   dni: '22222222'
   name: 'jane'
   address: 'street 321'
-  zone_id: <%= ActiveRecord::Fixtures.identify(:sur)%>
+  zone: 'sur'
   email: 'jane@asd.com'
   phone: '3444'
   cellphone: '1553444'
@@ -20,7 +20,7 @@ pablo:
   dni: '23232323'
   name: 'pablo'
   address: 'd 321'
-  zone_id: <%= ActiveRecord::Fixtures.identify(:sur)%>
+  zone: 'sur'
   email: 'pablo@asd.com'
   phone: '1234'
   cellphone: '1551234'
