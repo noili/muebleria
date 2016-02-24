@@ -6,7 +6,7 @@ class VisitTest < ActiveSupport::TestCase
     john = clients :john
     john.update zone: zones(:norte)
     visit = Visit.create client: john
-    assert visit.zone == zones(:norte)
+    assert_equal zones(:norte), visit.zone
   end
 
 end
