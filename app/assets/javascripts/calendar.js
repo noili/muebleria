@@ -1,5 +1,5 @@
 $(document)
-  .on('click', '.calendar button[data-turn-id]', function (evt) {
+  .on('click', '.calendar li[data-turn-id]', function (evt) {
     $('#visit_turn_id').val($(this).data('turn-id'));
     $('#turn_at').val('');
     $('fieldset#new-turn').hide();
