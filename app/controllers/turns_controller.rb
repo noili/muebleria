@@ -1,6 +1,10 @@
 class TurnsController < ApplicationController
   before_action :set_turn, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @calendar = Day.build 2
+  end
+
   def create
     @turn = Turn.new(turn_params)
 
