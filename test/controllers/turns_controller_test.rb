@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class TurnsControllerTest < ActionController::TestCase
+  include RequireAuthentication
+
   setup do
     @turn = turns(:jueves)
   end

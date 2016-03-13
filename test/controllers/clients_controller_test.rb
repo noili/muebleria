@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class ClientsControllerTest < ActionController::TestCase
+  include RequireAuthentication
+
   test 'update existing client' do
     john = clients :john
     put :update, dni: john.dni, client: {name: 'pepe'}

@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class VisitsControllerTest < ActionController::TestCase
+  include RequireAuthentication
+
   def client
     clients(:john)
   end

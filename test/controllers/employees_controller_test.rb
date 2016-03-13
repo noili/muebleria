@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class EmployeesControllerTest < ActionController::TestCase
+  include RequireAuthentication
+
   setup do
     @employee = employees(:fede)
   end

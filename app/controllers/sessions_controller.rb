@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
   layout 'session'
 
+  skip_before_action :authenticate_user, only: [:new, :create]
+
   def create
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
@@ -16,5 +18,4 @@ class SessionsController < ApplicationController
     session.clear
     redirect_to new_session_path, notice: 'Cerraste sesion'
   end
-
 end
