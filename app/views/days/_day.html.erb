@@ -1,26 +1,26 @@
 <li class="date <%= 'inactive' if day.expired? %>">
-<h1>
-  <%= day.date.strftime('%a, %d') %>
+  <h1>
+    <%= day.date.strftime('%a, %d') %>
 
-  <% unless day.expired? %>
-    <button type="button" class="btn btn-primary btn-sm my-btn"
-                          data-at="<%= day.date %>">
-                          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-    </button>
-  <% end %>
-</h1>
-<ul class="list-group">
-  <% day.turns.each do |turn|%>
-    <li type="button" <%= 'disabled' if day.expired? %>
-            data-turn-id="<%= turn.id %>"
-            class="btn-sm btn btn-default list-group-item">
-      <%= turn.employee %>
-      <% turn.zones.each do |zone| %>
-        <span class="label label-info"><%= zone %></span>
-      <% end %>
-      <span class="label label-default"><%= turn.visits.count %></span>
-      <%= link_to 'detalles', turn_path(turn) %>
-    </li>
-  <% end %>
-</ul>
+    <% unless day.expired? %>
+      <button type="button" class="btn btn-primary btn-sm my-btn"
+                            data-at="<%= day.date %>">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      </button>
+    <% end %>
+  </h1>
+  <ul class="list-group">
+    <% day.turns.each do |turn|%>
+      <li type="button" <%= 'disabled' if day.expired? %>
+          data-turn-id="<%= turn.id %>"
+          class="btn-sm btn btn-default list-group-item">
+        <%= turn.employee %>
+        <% turn.zones.each do |zone| %>
+          <span class="label label-info"><%= zone %></span>
+        <% end %>
+        <span class="label label-default"><%= turn.visits.count %></span>
+        <%= link_to 'detalles', turn_path(turn) %>
+      </li>
+    <% end %>
+  </ul>
 </li>
