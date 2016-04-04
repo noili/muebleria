@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class SessionsControllerTest < ActionController::TestCase
-
   test "show the login form" do
     get :new
     assert_response :success
