@@ -12,8 +12,8 @@ class TurnTest < ActiveSupport::TestCase
     date = Date.parse('Monday')
     turn = Turn.new employee: employees(:pablo),
       at: date
-    assert_match /\(Pablo\)/, turn.to_s, 'display employee'
-    assert_match /#{date.day}/, turn.to_s, 'display date'
+    assert_match %r[(Pablo)], turn.to_s, 'display employee'
+    assert_match %r[#{date.day}], turn.to_s, 'display date'
   end
 
   test 'zone names returns array with zones from visits' do

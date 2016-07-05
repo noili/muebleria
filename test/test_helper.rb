@@ -32,7 +32,7 @@ module RequireAuthentication
 
   def authentication_required_for *action_args
     session.clear
-    process *action_args
+    process(*action_args)
     assert_redirected_to new_session_path
   end
 end

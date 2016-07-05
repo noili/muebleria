@@ -39,8 +39,4 @@ class VisitsController < ApplicationController
   def client
     @client ||= Client.find_by! dni: params[:client_dni]
   end
-
-  def set_visit
-    @visit ||= Visit.find(params[:id])
-  end
 end
