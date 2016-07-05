@@ -23,6 +23,7 @@ class AdminFlowTest < ActionDispatch::IntegrationTest
     SAMPLE_CLIENT.each do |attr, value|
       fill_in attr, with: value
     end
+    select 'sur', from: 'client_zone_id'
     click_on 'Guardar'
     assert_current_path new_client_visit_path(dni)
     fill_in :visit_description, with: 'una cama'
