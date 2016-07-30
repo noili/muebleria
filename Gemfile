@@ -36,6 +36,7 @@ gem 'rails-i18n', '~> 4.0'
 group :development, :test do
   gem 'pry'
   gem 'sqlite3'
+  gem 'launchy'
 end
 
 group :test do

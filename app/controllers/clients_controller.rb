@@ -1,20 +1,22 @@
 class ClientsController < ApplicationController
-  def create
-    client = Client.create client_params
-    redirect_to edit_client_path(client)
-  end
+  before_action :set_client, only: [:edit, :update]
 
-  def edit
-    client
-  end
-
-  def update
-    client.update client_params
-    redirect_to new_client_visit_path(client)
-  end
-
+  # Search for a client by DNI
   def new
-    client
+    @client = Client.new
+  end
+
+  # Edit client details
+  def edit
+  end
+
+  # Update client details and start a new visit
+  def update
+    if @client.update client_params
+      redirect_to new_client_visit_path(@client)
+    else
+      render :edit
+    end
   end
 
   private
@@ -24,7 +26,11 @@ class ClientsController < ApplicationController
                                    :phone, :cellphone)
   end
 
-  def client
-    @client ||= Client.find_or_initialize_by dni: params[:dni]
+  def set_client
+    @client ||= Client.find_or_initialize_by dni: client_dni
+  end
+
+  def client_dni
+    params[:dni] || client_params[:dni]
   end
 end
