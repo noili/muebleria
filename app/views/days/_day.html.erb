@@ -2,24 +2,35 @@
   <h1>
     <%= day.date.strftime('%a, %d') %>
 
-    <% unless day.expired? %>
+    <% if selectable_day? day %>
       <button type="button" class="btn btn-primary btn-sm my-btn"
-                            data-at="<%= day.date %>">
-                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+              data-at="<%= day.date %>" title="Nuevo turno">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        <span class="sr-only">Nuevo turno</span>
       </button>
     <% end %>
   </h1>
   <ul class="list-group">
     <% day.turns.each do |turn|%>
-      <li type="button" <%= 'disabled' if day.expired? %>
-          data-turn-id="<%= turn.id %>"
-          class="btn-sm btn btn-default list-group-item">
+      <li data-turn-id="<%= turn.id %>" class="list-group-item">
         <%= turn.employee %>
         <% turn.zones.each do |zone| %>
           <span class="label label-info"><%= zone %></span>
         <% end %>
         <span class="label label-default"><%= turn.visits.count %></span>
-        <%= link_to 'detalles', turn_path(turn) %>
+        <% if selectable_day? day %>
+          <button type="button" class="btn btn-primary btn-xs"
+                  data-at="<%= day.date %>" title="Seleccionar turno">
+             <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+             <span class="sr-only">Seleccionar</span>
+          </button>
+        <% end %>
+        <%= link_to turn_path(turn), class: "btn btn-default btn-xs",
+                    title: "detalles" do %>
+          <span class="glyphicon glyphicon-info-sign" aria-hidden="true">
+          </span>
+          <span class="sr-only">detalles</span>
+        <% end %>
       </li>
     <% end %>
   </ul>
