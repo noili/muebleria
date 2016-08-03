@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :visits, only: :show
-  resources :turns, only: [:create, :update, :edit, :show, :destroy]
+  resources :turns
 
   get 'calendar', to: 'days#index'
 end
