@@ -7,8 +7,7 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy],
                      path_names: { new: 'sign_in' }
 
-  resources :clients, param: :dni, only: [:new, :edit, :update] do
-    post '/', action: :edit, on: :collection
+  resources :clients, param: :dni, only: [:new, :edit, :update, :create] do
     post '/', action: :update, on: :member
     resources :visits, only: [:new, :create]
   end

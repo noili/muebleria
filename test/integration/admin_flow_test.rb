@@ -22,7 +22,7 @@ class AdminFlowTest < ActionDispatch::IntegrationTest
     visit new_client_path
     fill_in 'Buscar DNI', with: dni
     click_on 'Search'
-    assert_current_path clients_path
+    assert_current_path edit_client_path(dni)
     SAMPLE_CLIENT.each do |attr, value|
       fill_in attr, with: value
     end
