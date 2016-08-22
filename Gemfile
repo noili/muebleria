@@ -54,4 +54,6 @@ end
 
 group :production do
   gem 'pg'
+  # TODO: remove this after correcting configuration
+  gem 'rails_12factor', '~> 0.0.3'
 end
