@@ -1,14 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>At:</strong>
-  <%= @turn.at %>
-</p>
+<table class="table">
+  <tr>
+    <th><%= @turn.employee %></th>
+    <th><%= @turn.at %></th>
+  </tr>
+  <% @turn.visits.each do |visit| %>
+    <tr>
+      <td><%= visit.client.address %></td>
+      <td><%= visit.client.phone %></td>
+      <td><%= visit.client.email %></td>
+    </tr>
+  <% end %>
+</table>
 
-<p>
-  <strong>Employee:</strong>
-  <%= @turn.employee %>
-</p>
-
-<%= link_to 'Edit', edit_turn_path(@turn) %> |
 <%= link_to 'Back', turns_path %>
