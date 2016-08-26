@@ -6,7 +6,9 @@ class ClientsControllerTest < ActionController::TestCase
   def update_unexisting_client
     put :update, dni: '28684242', client: {
       name: 'ceci',
-      zone_id: zones(:sur)
+      zone_id: zones(:sur),
+      address: 'house 123',
+      phone: '4555555'
     }
   end
 
