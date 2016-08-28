@@ -12,7 +12,7 @@
   </h1>
   <ul class="list-group">
     <% day.turns.each do |turn|%>
-      <li data-turn-id="<%= turn.id %>" class="list-group-item">
+      <li data-turn-id="<%= turn.id %>" class="list-group-item<%= "-warning" if @visit && !turn.zones.include?(@visit.client.zone) %>">
         <%= turn.employee %>
         <% turn.zones.each do |zone| %>
           <span class="label label-info"><%= zone %></span>
