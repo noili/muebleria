@@ -6,8 +6,8 @@ class ClientsController < ApplicationController
     @client = Client.new
   end
 
-  # Edit client details
-  def edit
+  def create
+    redirect_to edit_client_path(params[:client][:dni])
   end
 
   # Update client details and start a new visit
