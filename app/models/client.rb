@@ -6,7 +6,7 @@ class Client < ActiveRecord::Base
 
   def phone_or_cellphone
     if phone.empty? && cellphone.empty?
-      errors.add(:phones, "either phone or cellphone can't be blank")
+      errors.add(:phones, "o bien Telefono o Celular deben estar completos")
     end
   end
 
