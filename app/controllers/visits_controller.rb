@@ -17,6 +17,11 @@ class VisitsController < ApplicationController
     end
   end
 
+  def index
+    @visits = Visit.all
+    @employee = Employee.find_by params[:employee_id]
+  end
+
   private
 
   def set_visit

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :employees
+  resources :employees do
+    resources :visits, only: :index
+  end
 
   root to: redirect('/session/sign_in')
 

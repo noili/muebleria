@@ -1,0 +1,22 @@
+<h2><%= @employee %></h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Direccion</th>
+      <th>Detalles</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @visits.each do |visit| %>
+      <% if visit.turn.employee == @employee && visit.turn.at >= Date.today %>
+        <tr>
+          <td><%= visit.address %></td>
+          <td><%= visit.description %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
