@@ -2,15 +2,18 @@ class Client < ActiveRecord::Base
   has_many :visits
   belongs_to :zone, required: true
   validates :address, presence: true
-  validate :phone_or_cellphone
+  validate :contact_number_presence
 
-  def phone_or_cellphone
-    if phone.empty? && cellphone.empty?
-      errors.add(:phones, "o bien Telefono o Celular deben estar completos")
-    end
-  end
 
   def to_param
     dni
+  end
+
+  private
+
+  def contact_number_presence
+    if phone.empty? && cellphone.empty?
+      errors.add(:phones, "debe ingresar algun numero de contacto")
+    end
   end
 end
