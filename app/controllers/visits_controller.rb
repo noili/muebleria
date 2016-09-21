@@ -1,5 +1,6 @@
 class VisitsController < ApplicationController
   before_action :set_visit, only: [:show]
+  layout "employee", only: [:index]
 
   def new
     @visit = client.visits.new
