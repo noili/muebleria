@@ -19,8 +19,8 @@ class VisitsController < ApplicationController
   end
 
   def index
-    @visits = Visit.all
     @employee = Employee.find_by params[:employee_id]
+    @visits = @employee.visits.where(:turns => { at: Date.today })
   end
 
   private

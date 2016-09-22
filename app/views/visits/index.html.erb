@@ -8,21 +8,18 @@
       <th>Telefono</th>
       <th>Celular</th>
       <th>Detalles</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @visits.each do |visit| %>
-      <% if visit.turn.employee == @employee && visit.turn.at == Date.today %>
-        <tr>
-          <td><%= visit.address %></td>
-          <td><%= visit.class.name %></td>
-          <td><%= visit.client.phone %></td>
-          <td><%= visit.client.cellphone %></td>
-          <td><%= visit.description %></td>
-        </tr>
-      <% end %>
+      <tr>
+        <td><%= visit.address %></td>
+        <td><%= visit.class.name %></td>
+        <td><%= visit.client.phone %></td>
+        <td><%= visit.client.cellphone %></td>
+        <td><%= visit.description %></td>
+      </tr>
     <% end %>
   </tbody>
 </table>
