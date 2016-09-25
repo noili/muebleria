@@ -1,5 +1,6 @@
 class VisitsController < ApplicationController
   before_action :set_visit, only: [:show]
+  layout "employee", only: [:index]
 
   def new
     @visit = client.visits.new
@@ -15,6 +16,11 @@ class VisitsController < ApplicationController
       @calendar = Day.build 2
       render :new
     end
+  end
+
+  def index
+    @employee = Employee.find_by params[:employee_id]
+    @visits = @employee.visits.where(:turns => { at: Date.today })
   end
 
   private

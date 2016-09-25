@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Muebleria</title>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="<%= controller_name %>">
+
+  <div class="container">
+    <% flash.each do |type, message| %>
+      <div class="alert <%= alert_class type %> fade in">
+        <%= close_button %>
+        <%= message %>
+      </div>
+    <% end %>
+    <%= yield %>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<h2><%= @employee %></h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Direccion</th>
+      <th>Nombre</th>
+      <th>Telefono</th>
+      <th>Celular</th>
+      <th>Detalles</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @visits.each do |visit| %>
+      <tr>
+        <td><%= visit.address %></td>
+        <td><%= visit.class.name %></td>
+        <td><%= visit.client.phone %></td>
+        <td><%= visit.client.cellphone %></td>
+        <td><%= visit.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
